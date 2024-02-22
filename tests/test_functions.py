@@ -1,5 +1,5 @@
 import pytest
-from coursework3.functions import *
+from src.functions import *
 from datetime import datetime
 
 

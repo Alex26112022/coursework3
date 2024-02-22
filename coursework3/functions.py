@@ -22,3 +22,9 @@ def date_show(date_str: str) -> str:
     date_obj = datetime.strptime(date_str, '%Y-%m-%dT%H:%M:%S.%f')
     str_date = datetime.strftime(date_obj, '%d.%m.%Y')
     return str_date
+
+
+def format_from_account(write_off: str) -> str:
+    """ Принимает счет списания и форматирует его -> <Счет XXXX XX** ****
+    XXXX> """
+    pass

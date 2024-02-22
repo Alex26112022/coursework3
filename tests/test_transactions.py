@@ -1,6 +1,6 @@
 import pytest
 
-from coursework3.transactions import Transactions
+from src.transactions import Transactions
 
 
 @pytest.mark.parametrize('num_transaction, is_executed, date, description, '

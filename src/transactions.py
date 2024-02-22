@@ -9,36 +9,37 @@ class Transactions:
 
     def is_executed(self) -> bool:
         """Возвращает True если операция успешна. """
-        pass
+        return self.__info.get('state') == 'EXECUTED'
 
     def get_date(self) -> datetime:
         """ Возвращает дату транзакции. """
-        pass
+        return date_format(self.__info.get('date'))
 
     def get_date_str(self) -> str:
         """ Возвращает строковое представление даты в нужном формате. """
-        pass
+        return date_show(self.__info.get('date'))
 
     def get_description(self) -> str:
         """ Возвращает описание транзакции. """
-        pass
+        return self.__info.get('description')
 
     def get_from_account(self) -> str:
         """ Возвращает счет списания средств."""
-        pass
+        return format_from_account(self.__info.get('from'))
 
     def get_to_account(self) -> str:
         """ Возвращает счет зачисления средств. """
-        pass
+        return format_to_account(self.__info.get('to'))
 
     def get_amount(self) -> str:
         """ Возвращает сумму перевода. """
-        pass
+        return self.__info.get('operationAmount').get('amount')
 
     def get_currency(self) -> str:
         """ Возвращает тип валюты. """
-        pass
+        return self.__info.get('operationAmount').get('currency').get('name')
 
     def __repr__(self):
         """ Возвращает название класса, Id и дату операции. """
-        pass
+        return (f'Transactions. ID = {self.__info.get('id')}. Date: '
+                f'{self.__info.get('date')}')

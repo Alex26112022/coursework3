@@ -27,4 +27,12 @@ def date_show(date_str: str) -> str:
 def format_from_account(write_off: str) -> str:
     """ Принимает счет списания и форматирует его -> <Счет XXXX XX** ****
     XXXX> """
-    pass
+    if write_off is not None:
+        account = write_off.split()
+        account_alpha = account[:-1]
+        account_alpha = ' '.join(account_alpha)
+        account_digit = account[-1]
+        account = (account_alpha + ' ' + account_digit[0:4] + ' ' +
+                   account_digit[4:6] + '**' + ' ' + '****' + ' ' +
+                   account_digit[-4:])
+        return account

@@ -41,3 +41,11 @@ def test_transaction(num_transaction, json_load, is_executed, date,
     assert transaction.get_to_account() == to_account
     assert transaction.get_amount() == amount
     assert transaction.get_currency() == currency
+
+
+@pytest.mark.parametrize('expected_error', [AttributeError])
+def test_attribute_err(json_load, expected_error):
+    """ Обращение к несуществующему методу. """
+    transaction = Transactions(json_load[0])
+    with pytest.raises(expected_error):
+        transaction.false_attribute()
